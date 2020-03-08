@@ -93,7 +93,7 @@ class Quat(private val a: Float*) {
   def vector(): Vec =
     Vec(3){d => a(d+1)}
 
-  def asFloatBuffer(): FloatBuffer = {
+  def toFloatBuffer(): FloatBuffer = {
 
     val buffer = BufferUtils.createFloatBuffer(4)
     a.foreach(buffer.put)

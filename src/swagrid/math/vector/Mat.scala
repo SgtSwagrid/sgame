@@ -92,7 +92,7 @@ class  Mat(private val a: Seq[Float]*) {
   def col(c: Int): Vec =
     Vec(height) {d => a(c)(d)}
 
-  def asFloatBuffer(): FloatBuffer = {
+  def toFloatBuffer(): FloatBuffer = {
 
     val buffer = BufferUtils.createFloatBuffer(width * height)
     a.foreach{r => r.foreach(buffer.put)}

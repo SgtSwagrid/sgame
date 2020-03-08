@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b84c836-7900-4587-9a5d-b726adf1a7e6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lwjgl_3_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/Window.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/World.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/entity/Entity.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/EntityShader.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/Material.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/Model.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/Shader.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/Texture.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/WorldRenderer.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/test/Test.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sgame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sgame.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/Camera.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/Viewport.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swagrid/graphics/EntityShader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/graphics/EntityShader.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swagrid/graphics/Material.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/graphics/Material.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swagrid/math/vector/Mat.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/math/vector/Mat.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swagrid/math/vector/Quat.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/math/vector/Quat.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swagrid/math/vector/Vec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/math/vector/Vec.scala" afterDir="false" />
@@ -35,11 +25,11 @@
         <splitter split-orientation="horizontal" split-proportion="0.4883829">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="Mat.scala" pinned="false" current-in-tab="true">
+              <file leaf-file-name="Mat.scala" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/swagrid/math/vector/Mat.scala">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="680">
-                      <caret line="94" column="38" lean-forward="true" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+                    <state relative-caret-position="510">
+                      <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
                       <folding>
                         <element signature="e#29#56#0" expanded="true" />
                       </folding>
@@ -59,6 +49,18 @@
                   </provider>
                 </entry>
               </file>
+              <file leaf-file-name="EntityShader.scala" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/EntityShader.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="873">
+                      <caret line="62" column="37" selection-start-line="62" selection-start-column="37" selection-end-line="62" selection-end-column="37" />
+                      <folding>
+                        <element signature="e#26#56#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
             </leaf>
           </split-first>
           <split-second>
@@ -66,8 +68,8 @@
               <file leaf-file-name="Quat.scala" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/swagrid/math/vector/Quat.scala">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="561">
-                      <caret line="88" column="20" lean-forward="true" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
+                    <state relative-caret-position="442">
+                      <caret line="81" column="5" lean-forward="true" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
                       <folding>
                         <element signature="e#29#56#0" expanded="true" />
                       </folding>
@@ -75,14 +77,20 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="EntityShader.scala" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/EntityShader.scala">
+              <file leaf-file-name="Viewport.scala" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Viewport.scala">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="714">
-                      <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-                      <folding>
-                        <element signature="e#26#56#0" expanded="true" />
-                      </folding>
+                    <state relative-caret-position="153">
+                      <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="Camera.scala" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Camera.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="238">
+                      <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
                     </state>
                   </provider>
                 </entry>
@@ -99,11 +107,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="Material.scala" pinned="false" current-in-tab="false">
+              <file leaf-file-name="Material.scala" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Material.scala">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="34">
-                      <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+                    <state relative-caret-position="68">
+                      <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
                     </state>
                   </provider>
                 </entry>
@@ -111,8 +119,8 @@
               <file leaf-file-name="Mesh.scala" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="34">
-                      <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+                    <state relative-caret-position="136">
+                      <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
                     </state>
                   </provider>
                 </entry>
@@ -141,11 +149,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Vec.scala" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Vec.scala" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/swagrid/math/vector/Vec.scala">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="394">
-                  <caret line="80" column="2" selection-start-line="80" selection-start-column="2" selection-end-line="86" selection-end-column="3" />
+                  <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
                   <folding>
                     <element signature="e#29#56#0" expanded="true" />
                   </folding>
@@ -153,11 +161,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Window.scala" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Window.scala" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/swagrid/Window.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="867">
-                  <caret line="51" column="14" lean-forward="true" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+                <state relative-caret-position="935">
+                  <caret line="55" column="14" lean-forward="true" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
                   <folding>
                     <element signature="e#17#45#0" expanded="true" />
                   </folding>
@@ -212,12 +220,16 @@
         <option value="$PROJECT_DIR$/src/swagrid/graphics/WorldRenderer.scala" />
         <option value="$PROJECT_DIR$/src/swagrid/Window.scala" />
         <option value="$PROJECT_DIR$/src/swagrid/test/Test.scala" />
-        <option value="$PROJECT_DIR$/src/swagrid/math/vector/Mat.scala" />
-        <option value="$PROJECT_DIR$/src/swagrid/math/vector/Vec.scala" />
-        <option value="$PROJECT_DIR$/src/swagrid/math/vector/Quat.scala" />
         <option value="$PROJECT_DIR$/src/swagrid/graphics/Shader.scala" />
         <option value="$PROJECT_DIR$/src/swagrid/graphics/Texture.scala" />
+        <option value="$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala" />
+        <option value="$PROJECT_DIR$/src/swagrid/math/vector/Mat.scala" />
+        <option value="$PROJECT_DIR$/src/swagrid/math/vector/Quat.scala" />
+        <option value="$PROJECT_DIR$/src/swagrid/math/vector/Vec.scala" />
+        <option value="$PROJECT_DIR$/src/swagrid/graphics/Camera.scala" />
+        <option value="$PROJECT_DIR$/src/swagrid/graphics/Viewport.scala" />
         <option value="$PROJECT_DIR$/src/swagrid/graphics/EntityShader.scala" />
+        <option value="$PROJECT_DIR$/src/swagrid/graphics/Material.scala" />
       </list>
     </option>
   </component>
@@ -502,26 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/math/vector/Vec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="80" column="2" selection-start-line="80" selection-start-column="2" selection-end-line="86" selection-end-column="3" />
-          <folding>
-            <element signature="e#29#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/math/vector/Quat.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="88" column="20" lean-forward="true" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
-          <folding>
-            <element signature="e#29#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/swagrid/entity/Entity.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -533,50 +525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Material.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Texture.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
-          <folding>
-            <element signature="e#26#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/EntityShader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-          <folding>
-            <element signature="e#26#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/test/Test.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="e#22#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -606,21 +554,99 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/swagrid/Window.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="14" lean-forward="true" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+        <state relative-caret-position="935">
+          <caret line="55" column="14" lean-forward="true" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
           <folding>
             <element signature="e#17#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/swagrid/test/Test.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="e#22#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Texture.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+          <folding>
+            <element signature="e#26#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/swagrid/math/vector/Mat.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="94" column="38" lean-forward="true" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+        <state relative-caret-position="510">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
           <folding>
             <element signature="e#29#56#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swagrid/math/vector/Vec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+          <folding>
+            <element signature="e#29#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Camera.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Viewport.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/EntityShader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="873">
+          <caret line="62" column="37" selection-start-line="62" selection-start-column="37" selection-end-line="62" selection-end-column="37" />
+          <folding>
+            <element signature="e#26#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swagrid/math/vector/Quat.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="81" column="5" lean-forward="true" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+          <folding>
+            <element signature="e#29#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Material.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
         </state>
       </provider>
     </entry>

@@ -78,7 +78,7 @@ class Vec(private val a: Float*) {
   def toBasis(m: Mat): Vec =
     m.invert * this
 
-  def asFloatBuffer(): FloatBuffer = {
+  def toFloatBuffer(): FloatBuffer = {
 
     val buffer = BufferUtils.createFloatBuffer(dims)
     a.foreach(buffer.put)
