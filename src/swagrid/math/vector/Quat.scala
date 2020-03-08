@@ -1,4 +1,8 @@
-package math.vector
+package swagrid.math.vector
+
+import java.nio.FloatBuffer
+
+import org.lwjgl.BufferUtils
 
 import scala.math._
 
@@ -8,7 +12,7 @@ class Quat(private val a: Float*) {
     Quat {d => a(d) + q(d)}
 
   def -(q: Quat): Quat =
-    this + q.negate
+    this + -q
 
   def *(s: Float): Quat =
     Quat {a(_) * s}
@@ -16,7 +20,7 @@ class Quat(private val a: Float*) {
   def /(s: Float): Quat =
     this * (1.0F / s)
 
-  def negate(): Quat =
+  def unary_-(): Quat =
     this * -1.0F
 
   def norm(): Float =
@@ -44,7 +48,7 @@ class Quat(private val a: Float*) {
     (this * Quat(v) * invert).vector
 
   def conjugate(): Quat =
-    Quat(scalar, vector.negate)
+    Quat(scalar, -vector)
 
   def invert(): Quat =
     conjugate / norm
@@ -55,7 +59,7 @@ class Quat(private val a: Float*) {
       val qn = q.normalize
       val dot = normalize dot qn
       if (dot >= 0.0F) (qn, dot)
-      else (qn.negate, -dot)
+      else (-qn, -dot)
     }
 
     val a = acos(dot).toFloat
@@ -88,6 +92,14 @@ class Quat(private val a: Float*) {
 
   def vector(): Vec =
     Vec(3){d => a(d+1)}
+
+  def asFloatBuffer(): FloatBuffer = {
+
+    val buffer = BufferUtils.createFloatBuffer(4)
+    a.foreach(buffer.put)
+    buffer.flip()
+    buffer
+  }
 
   def apply(d: Int) = a(d)
 }
@@ -124,14 +136,14 @@ object Quat {
   }
 
   def rotate2About(angle: Float, origin: Vec): Mat =
-    Mat.translate(origin) * rotate2(angle) * Mat.translate(origin.negate)
+    Mat.translate(origin) * rotate2(angle) * Mat.translate(-origin)
 
   def rotate3About(rot: Quat, origin: Vec): Mat =
-    Mat.translate(origin) * rot.toMatrix * Mat.translate(origin.negate)
+    Mat.translate(origin) * rot.toMatrix * Mat.translate(-origin)
 
   def rotationMatrixOf(m: Mat): Mat = {
     val s = Mat.scale(Vec.scaleOf(m)).invert
-    val t = Mat.translate(Vec.translationOf(m).negate)
+    val t = Mat.translate(-Vec.translationOf(m))
     s * t * m
   }
 

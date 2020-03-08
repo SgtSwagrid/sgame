@@ -1,4 +1,8 @@
-package math.vector
+package swagrid.math.vector
+
+import java.nio.FloatBuffer
+
+import org.lwjgl.BufferUtils
 
 import scala.math._
 
@@ -8,7 +12,7 @@ class Vec(private val a: Float*) {
     Vec(dims) {d => a(d) + v(d)}
 
   def -(v: Vec): Vec =
-    this + v.negate
+    this + -v
 
   def *(s: Float): Vec =
     Vec(dims) {a(_) * s}
@@ -16,7 +20,7 @@ class Vec(private val a: Float*) {
   def /(s: Float): Vec =
     this * (1.0F / s)
 
-  def negate(): Vec =
+  def unary_-(): Vec =
     this * -1.0F
 
   def lengthSquared(): Float =
@@ -73,6 +77,14 @@ class Vec(private val a: Float*) {
 
   def toBasis(m: Mat): Vec =
     m.invert * this
+
+  def asFloatBuffer(): FloatBuffer = {
+
+    val buffer = BufferUtils.createFloatBuffer(dims)
+    a.foreach(buffer.put)
+    buffer.flip()
+    buffer
+  }
 
   def dims(): Int = a.size
 

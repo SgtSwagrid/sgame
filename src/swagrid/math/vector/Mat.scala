@@ -1,14 +1,18 @@
-package math.vector
+package swagrid.math.vector
+
+import java.nio.FloatBuffer
+
+import org.lwjgl.BufferUtils
 
 import scala.math._
 
-class Mat(private val a: Seq[Float]*) {
+class  Mat(private val a: Seq[Float]*) {
 
   def +(m: Mat): Mat =
     Mat(height, width) {(r, c) => a(r)(c) + m(r, c)}
 
   def -(m: Mat): Mat =
-    this + m.negate
+    this + -m
 
   def *(m: Mat): Mat =
     Mat(height, m.width) {row(_) dot m.col(_)}
@@ -22,7 +26,7 @@ class Mat(private val a: Seq[Float]*) {
   def /(s: Float): Mat =
     this * (1.0F / s)
 
-  def negate(): Mat =
+  def unary_-(): Mat =
     this * -1.0F
 
   def power(i: Int): Mat = i match {
@@ -88,6 +92,14 @@ class Mat(private val a: Seq[Float]*) {
   def col(c: Int): Vec =
     Vec(height) {d => a(c)(d)}
 
+  def asFloatBuffer(): FloatBuffer = {
+
+    val buffer = BufferUtils.createFloatBuffer(width * height)
+    a.foreach{r => r.foreach(buffer.put)}
+    buffer.flip()
+    buffer
+  }
+
   def height(): Int = a.size
 
   def width(): Int = a(0).size
@@ -136,14 +148,14 @@ object Mat {
       else 0.0F
     }
 
-  def transform2(transl: Vec, angle: Float, scale: Vec): Mat =
-    translate(transl) * Quat.rotate2(angle) * scale(scale)
+  def transform2(transl: Vec, angle: Float, size: Vec): Mat =
+    translate(transl) * Quat.rotate2(angle) * scale(size)
 
   def transform2(transl: Vec, angle: Float): Mat =
     translate(transl) * Quat.rotate2(angle)
 
-  def transform3(transl: Vec, rot: Quat, scale: Vec): Mat =
-    translate(transl) * rot.toMatrix * scale(scale)
+  def transform3(transl: Vec, rot: Quat, size: Vec): Mat =
+    translate(transl) * rot.toMatrix * scale(size)
 
   def transform3(transl: Vec, rot: Quat): Mat =
     translate(transl) * rot.toMatrix
