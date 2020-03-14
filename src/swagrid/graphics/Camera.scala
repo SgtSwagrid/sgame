@@ -1,15 +1,21 @@
 package swagrid.graphics
 
-import swagrid.math.vector.Mat
+import swagrid.math.vector.{Mat, Transf3}
 
-abstract class Camera {
+case class Camera(
+    fov: Float = 90.0F,
+    aspectRatio: Float = 1.5F,
+    nearClip: Float = 0.3F,
+    farClip: Float = 1000.0F,
+    transform: Transf3 = Transf3()
+) {
 
-  val fov = 90.0F
-  val aspectRatio = 1.5F
-  val nearClip = 0.3F
-  val farClip = 1000.0F
+  def projection(): Mat =
+    Mat.projection(fov, aspectRatio, nearClip, farClip)
 
-  def projection(): Mat = Mat.projection(fov, aspectRatio, nearClip, farClip)
-  abstract def transform(): Mat
-  def view(): Mat = transform.invert
+  def view(): Mat =
+    transform.matrix.invert
+
+  def at(transform: Transf3): Camera =
+    copy(transform = transform)
 }

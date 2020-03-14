@@ -1,6 +1,6 @@
 package swagrid.graphics
 
-class Material(
+case class Material(
     texture: Texture = null,
     colour: Colour = null,
     ambientLight: Float = 0.2F,

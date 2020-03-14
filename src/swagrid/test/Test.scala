@@ -1,6 +1,9 @@
 package swagrid.test
 
 import org.lwjgl.glfw.GLFW._
+import swagrid.entity.{Entity, EntityCamera, EntityModel}
+import swagrid.graphics.Camera
+import swagrid.math.vector.{Mat, Transf3, Vec}
 import swagrid.{Window, World}
 
 object Test {
@@ -8,13 +11,17 @@ object Test {
   def main(args: Array[String]): Unit = {
 
     var world = new World()
+      .addEntity(new Entity(
+        components = List(new EntityCamera()),
+        transform = Transf3().position_=(Vec(0, 0, -2))
+      )).addEntity(new Entity(
+        components = List(new EntityModel(model = null))
+      ))
 
     new Window(640, 480, "Hello, World!")
-      .onUpdate{e =>
-        if (e.dt != 0) e.window.title = s"${1000 / e.dt} FPS"
-        world.render()
-      }.onClick{e =>
-        if (e.action == GLFW_PRESS) println(s"Clicked at (${e.cursorX}, ${e.cursorY})!")
-      }.show()
+      .onRender{_ => world.render()}
+      .onUpdate{e => world = world.update(e.dt)}
+      .onFixedUpdate{e => world = world.fixedUpdate(e.dt)}
+      .show()
   }
 }

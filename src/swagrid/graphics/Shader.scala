@@ -49,6 +49,6 @@ abstract class Shader(vertexShaderFile: String, fragmentShaderFile: String) {
   def enable(): Unit = glUseProgram(shaderProgramId)
   def disable(): Unit = glUseProgram(0)
 
-  protected abstract def onBind(): Unit = ???
-  protected abstract def onInit(): Unit = ???
+  protected def onBind(): Unit
+  protected def onInit(): Unit
 }

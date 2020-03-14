@@ -5,7 +5,7 @@ import org.lwjgl.glfw.GLFWErrorCallback._
 import org.lwjgl.opengl.GL._
 import org.lwjgl.opengl.GL11._
 
-import scala.collection.mutable.MutableList
+import scala.collection.mutable
 
 class Window(
     private var _width: Int,
@@ -71,19 +71,31 @@ class Window(
 
     if (fixedDt > targetDt - dt/2) {
       lastFixedUpdate = now
-      val event = new FixedUpdateEvent(this, fixedDt)
-      fixedUpdateListeners.foreach(_(event))
+      val fixedUpdateEvent = new FixedUpdateEvent(this, fixedDt)
+      fixedUpdateListeners.foreach(_(fixedUpdateEvent))
     }
 
-    val event = new UpdateEvent(this, dt)
-    updateListeners.foreach(_(event))
+    val updateEvent = new UpdateEvent(this, dt)
+    updateListeners.foreach(_(updateEvent))
+
+    val renderEvent = new RenderEvent(this)
+    renderListeners.foreach(_(renderEvent))
 
     glfwSwapBuffers(windowId)
     glfwPollEvents()
     glfwSetWindowTitle(windowId, title)
   }
 
-  private val updateListeners = MutableList[UpdateEvent => Unit]()
+  private val renderListeners = mutable.Set[RenderEvent => Unit]()
+
+  def onRender(action: RenderEvent => Unit): Window = {
+    renderListeners += action
+    this
+  }
+
+  class RenderEvent(val window: Window)
+
+  private val updateListeners = mutable.Set[UpdateEvent => Unit]()
 
   def onUpdate(action: UpdateEvent => Unit): Window = {
     updateListeners += action
@@ -92,7 +104,7 @@ class Window(
 
   class UpdateEvent(val window: Window, val dt: Long)
 
-  private val fixedUpdateListeners = MutableList[FixedUpdateEvent => Unit]()
+  private val fixedUpdateListeners = mutable.Set[FixedUpdateEvent => Unit]()
 
   def onFixedUpdate(action: FixedUpdateEvent => Unit): Window = {
     fixedUpdateListeners += action
@@ -101,7 +113,7 @@ class Window(
 
   class FixedUpdateEvent(val window: Window, val dt: Long)
 
-  private val clickListeners = MutableList[ClickEvent => Unit]()
+  private val clickListeners = mutable.Set[ClickEvent => Unit]()
 
   def onClick(action: ClickEvent => Unit): Window = {
     clickListeners += action
@@ -117,7 +129,7 @@ class Window(
   class ClickEvent(val window: Window, val button: Int,
       val action: Int, val cursorX: Int, val cursorY: Int)
 
-  private val moveListeners = MutableList[MoveEvent => Unit]()
+  private val moveListeners = mutable.Set[MoveEvent => Unit]()
 
   def onMouseMove(action: MoveEvent => Unit): Window = {
     moveListeners += action
@@ -141,7 +153,7 @@ class Window(
   class MoveEvent(val window: Window, val cursorX: Int,
       val cursorY: Int, val cursorDX: Int, val cursorDY: Int)
 
-  private val keyListeners = MutableList[KeyEvent => Unit]()
+  private val keyListeners = mutable.Set[KeyEvent => Unit]()
 
   def onKey(action: KeyEvent => Unit): Window = {
     keyListeners += action
@@ -156,7 +168,7 @@ class Window(
 
   class KeyEvent(val window: Window, val key: Int, val action: Int)
 
-  private val resizeListeners = MutableList[ResizeEvent => Unit]()
+  private val resizeListeners = mutable.Set[ResizeEvent => Unit]()
 
   def onResize(action: ResizeEvent => Unit): Window = {
     resizeListeners += action

@@ -8,20 +8,12 @@ import java.nio.ByteBuffer
 import javax.imageio.ImageIO
 import org.lwjgl.BufferUtils
 
-class Texture(fileName: String, _opaque: Boolean = false) {
+class Texture(
+    val fileName: String,
+    val opaque: Boolean = false
+) {
 
-  var _textureId = -1
-
-  def textureId(): Int = {
-
-    if (textureId == -1) {
-      val (image, buffer) = loadPng(fileName)
-      _textureId = createTexture(image, buffer)
-    }
-    _textureId
-  }
-
-  def opaque(): Boolean = _opaque
+  lazy val textureId = (createTexture _).tupled(loadPng(fileName))
 
   private def loadPng(fileName: String): (BufferedImage, ByteBuffer) = {
 

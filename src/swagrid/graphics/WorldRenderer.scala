@@ -4,11 +4,12 @@ import scala.collection.immutable._
 
 class WorldRenderer {
 
-  private val shader = new ModelShader()
+  private lazy val shader = new ModelShader()
 
-  def render(world: GraphicsWorld): Unit = {
+  def render(frame: Frame): Unit = {
 
-    for ((mesh, models) <- world.models) {
+    shader.loadCamera(frame.camera)
+    for ((mesh, models) <- frame.models) {
       shader.loadMesh(mesh)
       for ((texture, models) <- models) {
         shader.loadTexture(texture)
@@ -22,19 +23,16 @@ class WorldRenderer {
   }
 }
 
-class GraphicsWorld(val models:
-    Map[Mesh, Map[Texture, Set[Model]]] = Map()) {
+class Frame(
+    val models: Map[Mesh, Map[Texture, Set[Model]]] = Map(),
+    val camera: Camera = Camera()
+) {
 
-  def addModel(model: Model): GraphicsWorld =
-    new GraphicsWorld(models + (model.mesh -> (
+  def addModel(model: Model): Frame =
+    new Frame(models = models + (model.mesh -> (
       models.getOrElse(model.mesh, Map()) + (model.texture -> (
         models(model.mesh).getOrElse(model.texture, Set()) + model)))))
 
-  def removeModel(model: Model): GraphicsWorld =
-    new GraphicsWorld(models + (model.mesh -> (
-      models.getOrElse(model.mesh, Map()) + (model.texture -> (
-        models(model.mesh).getOrElse(model.texture, Set()) - model)))))
-
-  def updateModel(oldModel: Model, newModel: Model): GraphicsWorld =
-    removeModel(oldModel).addModel(newModel)
+  def camera_=(camera: Camera): Frame =
+    new Frame(camera = camera)
 }
