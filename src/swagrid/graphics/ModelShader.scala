@@ -5,9 +5,9 @@ import org.lwjgl.opengl.GL13._
 import org.lwjgl.opengl.GL20._
 import org.lwjgl.opengl.GL30._
 import swagrid.entity.Entity
-import swagrid.math.vector.Mat
+import swagrid.math.vector.{Mat, Transf3}
 
-class EntityShader extends Shader("vertex.glsl", "fragment.glsl") {
+class ModelShader extends Shader("vertex.glsl", "fragment.glsl") {
 
   private val FOV = 90.0F
   private val ASPECT_RATIO = 1.5F
@@ -64,8 +64,8 @@ class EntityShader extends Shader("vertex.glsl", "fragment.glsl") {
 
   }
 
-  def render(transf: Mat): Unit = {
-    glUniformMatrix4fv(transform, true, transf.toFloatBuffer)
+  def render(transf: Transf3): Unit = {
+    glUniformMatrix4fv(transform, true, transf.matrix.toFloatBuffer)
     glDrawArrays(GL_TRIANGLES, 0, mesh.numVertices)
   }
 }

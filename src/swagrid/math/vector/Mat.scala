@@ -148,17 +148,15 @@ object Mat {
       else 0.0F
     }
 
-  def transform2(transl: Vec, angle: Float, size: Vec): Mat =
+  def transform2(transl: Vec = Vec.zero(2),
+                 angle: Float = 0.0F,
+                 size: Vec = Vec.one(2)): Mat =
     translate(transl) * Quat.rotate2(angle) * scale(size)
 
-  def transform2(transl: Vec, angle: Float): Mat =
-    translate(transl) * Quat.rotate2(angle)
-
-  def transform3(transl: Vec, rot: Quat, size: Vec): Mat =
+  def transform3(transl: Vec = Vec.zero(3),
+                 rot: Quat = Quat.identity(),
+                 size: Vec = Vec.one(3)): Mat =
     translate(transl) * rot.toMatrix * scale(size)
-
-  def transform3(transl: Vec, rot: Quat): Mat =
-    translate(transl) * rot.toMatrix
 
   def projection(fov: Float, aspect: Float, near: Float, far: Float): Mat = {
 
