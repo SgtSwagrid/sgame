@@ -4,7 +4,8 @@ import org.lwjgl.glfw.GLFW._
 import swagrid.entity.{Entity, EntityCamera, EntityModel}
 import swagrid.graphics.Camera
 import swagrid.math.vector.{Mat, Transf3, Vec}
-import swagrid.{Window, World}
+import swagrid.Window
+import swagrid.world.World
 
 object Test {
 

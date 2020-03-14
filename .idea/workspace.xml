@@ -2,39 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b84c836-7900-4587-9a5d-b726adf1a7e6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/entity/EntityCamera.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/swagrid/event/EventHandler.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/swagrid/event/WorldEvents.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$ClickEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$ClickEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$FixedUpdateEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$FixedUpdateEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$KeyEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$KeyEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$MoveEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$MoveEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$ResizeEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$ResizeEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$UpdateEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$UpdateEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/World.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Mat$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Mat$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Mat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Mat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Quat$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Quat$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Quat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Quat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Vec$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Vec$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Vec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Vec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/test/Test$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/test/Test$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/test/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/test/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sgame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sgame.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/Window.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/World.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/World.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/World$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/World.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/Component.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/Entity$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/Entity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/EntityCamera$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/EntityCamera.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/EntityModel$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/EntityModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Frame$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Frame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/WorldRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/test/Test$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/test/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swagrid/World.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/world/World.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swagrid/entity/Component.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/entity/Component.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swagrid/entity/Entity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/entity/Entity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/swagrid/entity/EntityCamera.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/entity/EntityCamera.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swagrid/entity/EntityModel.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/entity/EntityModel.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/entity/EntityTransform.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/graphics/Camera.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/graphics/Camera.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/graphics/Material.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/graphics/Material.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/graphics/Model.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/graphics/Model.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/graphics/Shader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/graphics/Shader.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/graphics/Texture.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/graphics/Texture.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swagrid/graphics/WorldRenderer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/graphics/WorldRenderer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/math/vector/Transf3.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/math/vector/Transf3.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swagrid/test/Test.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/test/Test.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +34,13 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Package Object" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -132,10 +129,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="275" y="42" key="#Project_Structure/0.0.1366.768@0.0.1366.768" timestamp="1584166639230" />
-    <state x="413" y="138" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1584169879288">
+    <state x="413" y="138" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1584181019058">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="413" y="138" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.768@0.0.1366.768" timestamp="1584169879288" />
+    <state x="413" y="138" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.768@0.0.1366.768" timestamp="1584181019058" />
     <state x="500" y="298" width="380" height="172" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog" timestamp="1584167368291">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -144,22 +141,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1584167926860" />
-    <state width="1323" height="136" key="GridCell.Tab.0.bottom" timestamp="1584173803229">
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom" timestamp="1584186791248">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="136" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584173803229" />
-    <state width="1323" height="136" key="GridCell.Tab.0.center" timestamp="1584173803229">
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1584186791248" />
+    <state width="1323" height="2" key="GridCell.Tab.0.center" timestamp="1584186791248">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="136" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584173803229" />
-    <state width="1323" height="136" key="GridCell.Tab.0.left" timestamp="1584173803229">
+    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1584186791248" />
+    <state width="1323" height="2" key="GridCell.Tab.0.left" timestamp="1584186791248">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="136" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584173803229" />
-    <state width="1323" height="136" key="GridCell.Tab.0.right" timestamp="1584173803229">
+    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1584186791248" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right" timestamp="1584186791248">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="136" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584173803229" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1584186791248" />
     <state x="184" y="26" key="SettingsEditor" timestamp="1584167307892">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

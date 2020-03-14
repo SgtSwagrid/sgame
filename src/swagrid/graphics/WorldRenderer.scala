@@ -29,10 +29,15 @@ class Frame(
 ) {
 
   def addModel(model: Model): Frame =
-    new Frame(models = models + (model.mesh -> (
+    copy(models = models + (model.mesh -> (
       models.getOrElse(model.mesh, Map()) + (model.texture -> (
         models(model.mesh).getOrElse(model.texture, Set()) + model)))))
 
   def camera_=(camera: Camera): Frame =
-    new Frame(camera = camera)
+    copy(camera = camera)
+
+  def copy(
+      models: Map[Mesh, Map[Texture, Set[Model]]] = models,
+      camera: Camera = camera): Frame =
+    new Frame(models, camera)
 }
