@@ -2,50 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b84c836-7900-4587-9a5d-b726adf1a7e6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/fragment.glsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/swagrid/graphics/vertex.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$ClickEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$ClickEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$FixedUpdateEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$FixedUpdateEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$KeyEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$KeyEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$MoveEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$MoveEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$RenderEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$RenderEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$ResizeEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$ResizeEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$UpdateEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window$UpdateEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/Player$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/Player$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/entity/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Camera$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Camera$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Camera.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Colour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Colour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Material$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Material$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Material.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Material.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Mesh.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Mesh.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Model$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Model$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/ModelShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/ModelShader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Shader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Shader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Texture$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Texture$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Texture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Texture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Viewport.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Viewport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Mat$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Mat$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Mat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Mat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Quat$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Quat$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Quat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Quat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Transf3$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Transf3$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Transf3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Transf3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Vec$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Vec$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Vec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sgame/swagrid/math/vector/Vec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/entity/EntityCamera.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/entity/EntityCamera.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/entity/EntityModel.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/entity/EntityModel.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/event/EventHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/event/EventHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/event/WorldEvents.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/event/WorldEvents.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sgame/swagrid/graphics/Mesh.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sgame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sgame.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swagrid/world/World.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/swagrid/world/World.scala" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,169 +14,6 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6311858">
-      <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.47015294">
-          <split-first>
-            <splitter split-orientation="vertical" split-proportion="0.5">
-              <split-first>
-                <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-                  <file leaf-file-name="Test.scala" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/src/swagrid/test/Test.scala">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="68">
-                          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-                          <folding>
-                            <element signature="e#22#50#0" expanded="true" />
-                          </folding>
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                  <file leaf-file-name="World.scala" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/src/swagrid/world/World.scala">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="170">
-                          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-                          <folding>
-                            <element signature="e#23#51#0" expanded="true" />
-                          </folding>
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                  <file leaf-file-name="Entity.scala" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/src/swagrid/entity/Entity.scala">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="68">
-                          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                  <file leaf-file-name="EventHandler.scala" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/src/swagrid/event/EventHandler.scala">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="238">
-                          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                  <file leaf-file-name="Shader.scala" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Shader.scala">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="527">
-                          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                  <file leaf-file-name="fragment.glsl" pinned="false" current-in-tab="true">
-                    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/fragment.glsl">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="289">
-                          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                </leaf>
-              </split-first>
-              <split-second>
-                <leaf>
-                  <file leaf-file-name="vertex.glsl" pinned="false" current-in-tab="true">
-                    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/vertex.glsl">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="221">
-                          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                </leaf>
-              </split-second>
-            </splitter>
-          </split-first>
-          <split-second>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="WorldEvents.scala" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/swagrid/event/WorldEvents.scala">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="340">
-                      <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-                      <folding>
-                        <element signature="e#23#51#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="EntityCamera.scala" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/swagrid/entity/EntityCamera.scala">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="238">
-                      <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="EntityModel.scala" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/swagrid/entity/EntityModel.scala">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="238">
-                      <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="WorldRenderer.scala" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/WorldRenderer.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ModelShader.scala" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/ModelShader.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Mesh.scala" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Texture.scala" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Texture.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -228,98 +26,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/swagrid/world/World.scala" />
-        <option value="$PROJECT_DIR$/src/swagrid/entity/EntityCamera.scala" />
-        <option value="$PROJECT_DIR$/src/swagrid/entity/EntityModel.scala" />
-        <option value="$PROJECT_DIR$/src/swagrid/event/EventHandler.scala" />
-        <option value="$PROJECT_DIR$/src/swagrid/event/WorldEvents.scala" />
-        <option value="$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala" />
-        <option value="$PROJECT_DIR$/src/swagrid/graphics/fragment.glsl" />
-        <option value="$PROJECT_DIR$/src/swagrid/graphics/vertex.glsl" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="2594" />
-    <option name="height" value="1447" />
   </component>
   <component name="ProjectId" id="1Z6iZGYKoAkZIjSCR8SJaStLE2I" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="sgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sgame" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="swagrid" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="swagrid" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="swagrid" type="462c0819:PsiDirectoryNode" />
-              <item name="event" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="swagrid" type="462c0819:PsiDirectoryNode" />
-              <item name="graphics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="swagrid" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sgame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sgame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="swagrid" type="462c0819:PsiDirectoryNode" />
-              <item name="world" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -334,18 +46,6 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="swagrid.test.Test" />
@@ -357,54 +57,31 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
+    <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -430,46 +107,11 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="2594" height="1447" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.0" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08805276" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32960477" />
-    </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="42" key="#Project_Structure" timestamp="1584166639230">
+    <state x="275" y="42" key="#Project_Structure" timestamp="1584371378956">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="42" key="#Project_Structure/0.0.1366.768@0.0.1366.768" timestamp="1584166639230" />
+    <state x="275" y="42" key="#Project_Structure/0.0.1366.768@0.0.1366.768" timestamp="1584371378956" />
     <state x="413" y="138" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1584181019058">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -502,211 +144,17 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="184" y="26" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1584167307892" />
-    <state x="384" y="207" key="com.intellij.ide.util.TipDialog" timestamp="1584166018380">
+    <state x="384" y="207" key="com.intellij.ide.util.TipDialog" timestamp="1584365394266">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="384" y="207" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584166018380" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1584169854981">
+    <state x="384" y="207" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584365394266" />
+    <state x="339" y="172" key="run.anything.popup" timestamp="1584369276464">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1584169854981" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/swagrid/test/Test.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding>
-            <element signature="e#22#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/world/World.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding>
-            <element signature="e#23#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/entity/Entity.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/event/EventHandler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Shader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/vertex.glsl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/event/WorldEvents.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-          <folding>
-            <element signature="e#23#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/entity/EntityCamera.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/entity/EntityModel.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/WorldRenderer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Texture.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/entity/Entity.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/test/Test.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding>
-            <element signature="e#22#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/world/World.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding>
-            <element signature="e#23#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/entity/EntityModel.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Mesh.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Texture.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/event/EventHandler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/Shader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/entity/EntityCamera.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/event/WorldEvents.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding>
-            <element signature="e#23#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/WorldRenderer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/ModelShader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/fragment.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/swagrid/graphics/vertex.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1584369276464" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1584375280805">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1584375280805" />
   </component>
 </project>
