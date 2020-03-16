@@ -11,7 +11,7 @@ class EntityModel(
 
   override def init(world: World, entity: Entity): World =
 
-    world.event{_.render{_.add(entity) {(frame, _) =>
+    world.event{_.onRender{_.add(entity) {(frame, _) =>
       frame.addModel(model)
     }}}
 }

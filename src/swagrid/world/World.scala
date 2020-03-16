@@ -1,7 +1,7 @@
 package swagrid.world
 
 import swagrid.entity.Entity
-import swagrid.event.{DestroyEvent, FixedUpdateEvent, RenderEvent, UpdateEvent, WorldEvents}
+import swagrid.event._
 import swagrid.graphics.{Frame, WorldRenderer}
 
 class World(

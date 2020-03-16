@@ -6,3 +6,13 @@ class Mesh {
   val numVertices = 0
 
 }
+
+object Mesh {
+
+  def fromObj(file: String): Mesh = {
+
+    def
+
+    null
+  }
+}
