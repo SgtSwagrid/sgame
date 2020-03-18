@@ -1,55 +1,66 @@
 package swagrid.graphics
 
 import swagrid.math.vector.Vec
-
 import scala.io.Source
+import org.lwjgl.opengl.GL11._
+import org.lwjgl.opengl.GL15._
+import org.lwjgl.opengl.GL20._
+import org.lwjgl.opengl.GL30._
 
-class Mesh {
+class Mesh(val vaoId: Int, val numVertices: Int, vboIds: Seq[Int]) {
 
-  val vaoId = 0
-  val numVertices = 0
-
+  def delete(): Unit = {
+    glDeleteVertexArrays(vaoId)
+    vboIds.foreach(glDeleteBuffers(_))
+  }
 }
 
 object Mesh {
+
+  def fromPoints(vertices: Seq[Vec], textures: Seq[Vec],
+      normals: Seq[Vec], indices: Seq[Int]): Mesh = {
+
+    val vaoId = glGenVertexArrays()
+    glBindVertexArray(vaoId)
+
+    glBindBuffer(GL_);
+  }
 
   def fromObj(name: String): Mesh = {
 
     val lines = Source.fromResource(name).getLines.toList
 
-    val vertices = getVertices(lines)
-    val textures = getTextures(lines)
-    val normals = getNormals(lines)
-    val pointIndices = getPoints(lines)
-
-    val points = List[Vec, Vec, Vec]()
-    val indices = Map[(Int, Int, Int), Int]()
-
-    pointIndices.foldLeft((points, indices)) {(i, p) =>
-      if (i._2.contains(p)) (i._1, i._2 :+ in)}
-
-
-
-  }
-
-  private def getVertices(lines: Seq[String]): List[Vec] =
-    lines.filter(_.startsWith("v"))
-      .foldLeft(List[Vec]()) {(v, s) => v :+
+    val vertices = lines.filter(_.startsWith("v"))
+      .foldLeft(Vector[Vec]()) {(v, s) => v :+
         Vec(3) {d => s.split(" ")(d+1).toFloat}}
 
-  private def getTextures(lines: Seq[String]): List[Vec] =
-    lines.filter(_.startsWith("t"))
-      .foldLeft(List[Vec]()) {(t, s) => t :+
+    val textures = lines.filter(_.startsWith("t"))
+      .foldLeft(Vector[Vec]()) {(t, s) => t :+
         Vec(2) {d => s.split(" ")(d+1).toFloat}}
 
-  private def getNormals(lines: Seq[String]): List[Vec] =
-    lines.filter(_.startsWith("n"))
-      .foldLeft(List[Vec]()) {(n, s) => n :+
+    val normals = lines.filter(_.startsWith("n"))
+      .foldLeft(Vector[Vec]()) {(n, s) => n :+
         Vec(3) {d => s.split(" ")(d+1).toFloat}}
 
-  private def getPoints(lines: Seq[String]): List[List[Int]] =
-    lines.filter(_.startsWith("f"))
-      .foldLeft(List[List[Int]]()) {(f, s) =>
+    val faces = lines.filter(_.startsWith("f"))
+      .foldLeft(Vector[Seq[Int]]()) {(f, s) =>
         s.split(" ").drop(1).foldLeft(f) {(p, s) => p :+
-          List.tabulate(3) {i => s.split("/")(i)}}}
+          Vector.tabulate(3) {i => s.split("/")(i).toInt}}}
+
+    val (points, indices, _) = faces.foldLeft(
+      List[(Vec, Vec, Vec)](),
+      List[Int](),
+      Map[(Int, Int, Int), Int]()
+    ) {(a, p) =>
+      if (a._3.contains(p(0), p(1), p(2)))
+        (a._1, a._2 :+ a._3(p(0), p(1), p(2)), a._3)
+      else
+        (a._1 :+ (vertices(p(0)), textures(p(1)), normals(p(2))),
+          a._2 :+ a._1.size,
+          a._3 + ((p(0), p(1), p(2)) -> a._1.size))
+    }
+
+    val (v, t, n) = points.unzip3(p => (p._1, p._2, p._3))
+    fromPoints(v, t, n, indices)
+  }
 }
