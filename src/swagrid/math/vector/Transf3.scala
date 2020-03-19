@@ -18,6 +18,9 @@ class Transf3(val position: Vec, val orientation: Quat, val scale: Vec) {
   def *(t: Transf3): Transf3 =
     transformRel(t.matrix)
 
+  def *(v: Vec): Vec =
+    matrix * v
+
   def invert(): Transf3 =
     Transf3(matrix.invert)
 

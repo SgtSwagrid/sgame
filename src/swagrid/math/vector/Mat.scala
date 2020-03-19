@@ -140,6 +140,9 @@ object Mat {
       else 0.0F
     }
 
+  def translate(transl: Float*): Mat =
+    translate(Vec(transl :_*))
+
   def scale(scale: Vec): Mat =
 
     Mat(scale.dims+1, scale.dims+1) {(r, c) =>
@@ -147,6 +150,9 @@ object Mat {
       else if (r == c) scale(r)
       else 0.0F
     }
+
+  def scale(scale: Float*): Mat =
+    this.scale(Vec(scale :_*))
 
   def transform2(transl: Vec = Vec.zero(2),
                  angle: Float = 0.0F,

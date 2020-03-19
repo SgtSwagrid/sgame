@@ -1,6 +1,8 @@
 package swagrid.graphics
 
-import swagrid.math.vector.Vec
+import org.lwjgl.BufferUtils._
+import swagrid.math.vector.{Transf3, Vec}
+
 import scala.io.Source
 import org.lwjgl.opengl.GL11._
 import org.lwjgl.opengl.GL15._
@@ -23,10 +25,27 @@ object Mesh {
     val vaoId = glGenVertexArrays()
     glBindVertexArray(vaoId)
 
-    glBindBuffer(GL_);
+    val vboIds = List((0, 3), (1, 2), (2, 3))
+      .foldLeft(List[Int]()) {(ids, vbo) =>
+
+        val vboId = glGenBuffers()
+        glBindBuffer(GL_ARRAY_BUFFER, vboId)
+
+        val buffer = createFloatBuffer(vbo._2 * vertices.size)
+        buffer.put(vertices.flatMap(v => Array(v.x, v.y, v.z)).toArray)
+        buffer.flip()
+
+        glBufferData(GL_ARRAY_BUFFER, buffer, GL_STATIC_DRAW)
+        glVertexAttribPointer(vbo._1, vbo._2, GL_FLOAT, false, 0, 0)
+
+        glBindBuffer(GL_ARRAY_BUFFER, 0)
+        ids :+ vboId
+    }
+    glBindVertexArray(0)
+    new Mesh(vaoId, indices.size, vboIds)
   }
 
-  def fromObj(name: String): Mesh = {
+  def fromObj(name: String, transform: Transf3 = Transf3()): Mesh = {
 
     val lines = Source.fromResource(name).getLines.toList
 
@@ -34,18 +53,18 @@ object Mesh {
       .foldLeft(Vector[Vec]()) {(v, s) => v :+
         Vec(3) {d => s.split(" ")(d+1).toFloat}}
 
-    val textures = lines.filter(_.startsWith("t"))
+    val textures = lines.filter(_.startsWith("vt"))
       .foldLeft(Vector[Vec]()) {(t, s) => t :+
         Vec(2) {d => s.split(" ")(d+1).toFloat}}
 
-    val normals = lines.filter(_.startsWith("n"))
+    val normals = lines.filter(_.startsWith("vn"))
       .foldLeft(Vector[Vec]()) {(n, s) => n :+
         Vec(3) {d => s.split(" ")(d+1).toFloat}}
 
     val faces = lines.filter(_.startsWith("f"))
       .foldLeft(Vector[Seq[Int]]()) {(f, s) =>
         s.split(" ").drop(1).foldLeft(f) {(p, s) => p :+
-          Vector.tabulate(3) {i => s.split("/")(i).toInt}}}
+          Vector.tabulate(3) {i => s.split("/")(i).toInt - 1}}}
 
     val (points, indices, _) = faces.foldLeft(
       List[(Vec, Vec, Vec)](),
@@ -61,6 +80,6 @@ object Mesh {
     }
 
     val (v, t, n) = points.unzip3(p => (p._1, p._2, p._3))
-    fromPoints(v, t, n, indices)
+    fromPoints(v.map(transform * _), t, n, indices)
   }
 }

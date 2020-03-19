@@ -1,10 +1,9 @@
 package swagrid.test
 
-import org.lwjgl.glfw.GLFW._
-import swagrid.entity.{Entity, EntityCamera, EntityModel}
-import swagrid.graphics.Camera
-import swagrid.math.vector.{Mat, Transf3, Vec}
 import swagrid.Window
+import swagrid.entity.{Entity, EntityCamera, EntityModel}
+import swagrid.graphics.{Mesh, Model}
+import swagrid.math.vector.{Mat, Transf3, Vec}
 import swagrid.world.World
 
 object Test {
@@ -13,16 +12,16 @@ object Test {
 
     var world = new World()
       .addEntity(new Entity(
-        components = List(new EntityCamera()),
-        transform = Transf3().position_=(Vec(0, 0, -2))
-      )).addEntity(new Entity(
-        components = List(new EntityModel(model = null))
-      ))
+        transform = Transf3(Mat.translate(0, 0, -5)),
+        components = List(new EntityCamera())))
+      .addEntity(new Entity(
+        transform = Transf3(),
+        components = List(new EntityModel(
+          model = Model(mesh = Mesh.fromObj("/res/mesh/cube.obj"))))))
 
-    new Window(640, 480, "Hello, World!")
-      .onRender{_ => world.render()}
-      .onUpdate{e => world = world.update(e.dt)}
-      .onFixedUpdate{e => world = world.fixedUpdate(e.dt)}
-      .show()
+    new Window(640, 480, "Test")
+      .onUpdate{e =>
+        world = world.update(e.dt)
+      }.show()
   }
 }
