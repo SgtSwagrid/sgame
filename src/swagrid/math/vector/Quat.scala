@@ -102,6 +102,9 @@ class Quat(private val a: Float*) {
   }
 
   def apply(d: Int) = a(d)
+
+  override def toString(): String =
+    a.mkString("Quat(", ", ", ")")
 }
 
 object Quat {

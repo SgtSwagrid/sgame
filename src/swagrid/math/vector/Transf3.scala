@@ -44,6 +44,9 @@ class Transf3(val position: Vec, val orientation: Quat, val scale: Vec) {
 
   def scale_=(s: Vec): Transf3 =
     Transf3(position, orientation, s)
+
+  override def toString(): String =
+    matrix.toString
 }
 
 object Transf3 {

@@ -1,18 +1,15 @@
-#version 120
+#version 400 core
 
-in vec3 vertex, normal;
-in vec2 texmap;
+in vec3 vertex_, normal_;
+in vec2 texmap_;
 
-out vec3 vertex_, normal_;
-out vec2 texmap_;
+out vec4 pixel;
 
-uniform mat4 transform, view, projection, viewport;
+uniform sampler2D sampler;
+uniform vec4 colour;
+uniform bool textured;
 
 void main() {
-
-    gl_Position = viewport * projection * view * transform * vec4(vectex, 1.0);
-
-    vertex_ = (transform * vec4(vertex, 1.0)).xyz;
-    normal_ = (transform * vec4(normal, 0.0)).xyz;
-    texmap_ = texmap;
+    pixel = vec4(0.0F, 0.0F, 0.0F, 1.0F);
+    //pixel = texture(sampler, texmap_) * colour;
 }

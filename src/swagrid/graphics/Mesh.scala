@@ -9,7 +9,55 @@ import org.lwjgl.opengl.GL15._
 import org.lwjgl.opengl.GL20._
 import org.lwjgl.opengl.GL30._
 
-class Mesh(val vaoId: Int, val numVertices: Int, vboIds: Seq[Int]) {
+class Mesh(vertices: Seq[Vec], textures: Seq[Vec],
+           normals: Seq[Vec], indices: Seq[Int]) {
+
+  lazy val (vaoId, numVertices, vboIds) = {
+
+    val vaoId = glGenVertexArrays()
+    glBindVertexArray(vaoId)
+
+    val vboIds = List(
+      loadVbo(vertices, 0, 3),
+      loadVbo(textures, 1, 2),
+      loadVbo(normals, 2, 3),
+      loadIndices(indices)
+    )
+
+    glBindVertexArray(0)
+    (vaoId, indices.size, vboIds)
+  }
+
+  private def loadVbo(data: Seq[Vec], id: Int, dim: Int): Int = {
+
+    val vboId = glGenBuffers()
+    glBindBuffer(GL_ARRAY_BUFFER, vboId)
+
+    val buffer = createFloatBuffer(dim * data.size)
+    buffer.put(data.flatMap(_.toSeq).toArray)
+    buffer.flip()
+
+    glBufferData(GL_ARRAY_BUFFER, buffer, GL_STATIC_DRAW)
+    glVertexAttribPointer(id, dim, GL_FLOAT, false, 0, 0)
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0)
+    vboId
+  }
+
+  private def loadIndices(indices: Seq[Int]): Int = {
+
+    val vboId = glGenBuffers()
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboId)
+
+    val buffer = createIntBuffer(indices.size)
+    buffer.put(indices.toArray)
+    buffer.flip()
+
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, buffer, GL_STATIC_DRAW)
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0)
+    vboId
+  }
 
   def delete(): Unit = {
     glDeleteVertexArrays(vaoId)
@@ -19,35 +67,9 @@ class Mesh(val vaoId: Int, val numVertices: Int, vboIds: Seq[Int]) {
 
 object Mesh {
 
-  def fromPoints(vertices: Seq[Vec], textures: Seq[Vec],
-      normals: Seq[Vec], indices: Seq[Int]): Mesh = {
-
-    val vaoId = glGenVertexArrays()
-    glBindVertexArray(vaoId)
-
-    val vboIds = List((0, 3), (1, 2), (2, 3))
-      .foldLeft(List[Int]()) {(ids, vbo) =>
-
-        val vboId = glGenBuffers()
-        glBindBuffer(GL_ARRAY_BUFFER, vboId)
-
-        val buffer = createFloatBuffer(vbo._2 * vertices.size)
-        buffer.put(vertices.flatMap(v => Array(v.x, v.y, v.z)).toArray)
-        buffer.flip()
-
-        glBufferData(GL_ARRAY_BUFFER, buffer, GL_STATIC_DRAW)
-        glVertexAttribPointer(vbo._1, vbo._2, GL_FLOAT, false, 0, 0)
-
-        glBindBuffer(GL_ARRAY_BUFFER, 0)
-        ids :+ vboId
-    }
-    glBindVertexArray(0)
-    new Mesh(vaoId, indices.size, vboIds)
-  }
-
   def fromObj(name: String, transform: Transf3 = Transf3()): Mesh = {
 
-    val lines = Source.fromResource(name).getLines.toList
+    val lines = Source.fromFile(name).getLines.toList
 
     val vertices = lines.filter(_.startsWith("v"))
       .foldLeft(Vector[Vec]()) {(v, s) => v :+
@@ -80,6 +102,7 @@ object Mesh {
     }
 
     val (v, t, n) = points.unzip3(p => (p._1, p._2, p._3))
-    fromPoints(v.map(transform * _), t, n, indices)
+    val vt = v.map{v => (transform * v.toHomogenous).toCartesian}
+    new Mesh(vt, t, n, indices)
   }
 }

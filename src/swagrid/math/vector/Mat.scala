@@ -52,7 +52,7 @@ class  Mat(private val a: Seq[Float]*) {
     Mat(height, width) {cofactor(_, _)}
 
   def cofactor(row: Int, col: Int): Float =
-    minor(row, col) * (if (row + col % 2 == 0) 1.0F else -1.0F)
+    minor(row, col) * (if ((row + col) % 2 == 0) 1.0F else -1.0F)
 
   def minor(): Mat =
     Mat(height, width) {minor(_, _)}
@@ -90,7 +90,7 @@ class  Mat(private val a: Seq[Float]*) {
     Vec = Vec(a(r) :_*)
 
   def col(c: Int): Vec =
-    Vec(height) {d => a(c)(d)}
+    Vec(height) {a(_)(c)}
 
   def toFloatBuffer(): FloatBuffer = {
 

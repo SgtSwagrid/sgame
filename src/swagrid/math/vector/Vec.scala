@@ -86,6 +86,8 @@ class Vec(private val a: Float*) {
     buffer
   }
 
+  def toSeq(): Seq[Float] = a
+
   def dims(): Int = a.size
 
   def apply(d: Int): Float = a(d)

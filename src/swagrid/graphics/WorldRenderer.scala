@@ -8,11 +8,13 @@ class WorldRenderer {
 
   def render(frame: Frame): Unit = {
 
+    shader.enable()
     shader.loadCamera(frame.camera)
     for ((mesh, models) <- frame.models) {
       shader.loadMesh(mesh)
       for ((texture, models) <- models) {
-        shader.loadTexture(texture)
+        if (texture.isDefined)
+          shader.loadTexture(texture.get)
         for (model <- models) {
           shader.loadMaterial(model.material)
           shader.render(model.transform)
@@ -20,24 +22,26 @@ class WorldRenderer {
       }
       shader.unloadMesh()
     }
+    shader.disable()
   }
 }
 
 class Frame(
-    val models: Map[Mesh, Map[Texture, Set[Model]]] = Map(),
-    val camera: Camera = Camera()
+    val models: Map[Mesh, Map[Option[Texture], Set[Model]]] = Map(),
+    val camera: Camera = null
 ) {
 
   def addModel(model: Model): Frame =
     copy(models = models + (model.mesh -> (
       models.getOrElse(model.mesh, Map()) + (model.texture -> (
-        models(model.mesh).getOrElse(model.texture, Set()) + model)))))
+        models.getOrElse(model.mesh, Map())
+          .getOrElse(model.texture, Set()) + model)))))
 
   def camera_=(camera: Camera): Frame =
     copy(camera = camera)
 
   def copy(
-      models: Map[Mesh, Map[Texture, Set[Model]]] = models,
+      models: Map[Mesh, Map[Option[Texture], Set[Model]]] = models,
       camera: Camera = camera): Frame =
     new Frame(models, camera)
 }

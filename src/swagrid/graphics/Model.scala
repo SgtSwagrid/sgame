@@ -4,7 +4,7 @@ import swagrid.math.vector.Transf3
 
 case class Model(
   mesh: Mesh = null,
-  texture: Texture = null,
+  texture: Option[Texture] = None,
   material: Material = null,
   transform: Transf3 = Transf3()
 ) {

@@ -8,13 +8,23 @@ class Entity(
     val components: Seq[Component] = List()
 ) {
 
-  def init(world: World): World = world
+  def init(world: World): World =
+    components.foldLeft(world){(w, c) => c.init(w, this)}
 
-  def transform(t: Transf3 => Transf3): Entity =
-    transform_=(t(transform))
+  def move(t: Transf3 => Transf3): Entity =
+    at(t(transform))
 
-  def transform_=(transform: Transf3): Entity =
+  def at(transform: Transf3): Entity =
     copy(transform = transform)
+
+  def updateComponent(oldComp: Component, newComp: Component): Entity =
+    copy(components = components.filter(_ != oldComp) :+ newComp)
+
+  def addComponent(comp: Component): Entity =
+    copy(components = components :+ comp)
+
+  def removeComponent(comp: Component): Entity =
+    copy(components = components.filter(_ != comp))
 
   def copy(
       transform: Transf3 = transform,

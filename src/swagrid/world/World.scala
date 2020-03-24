@@ -5,26 +5,28 @@ import swagrid.event._
 import swagrid.graphics.{Frame, WorldRenderer}
 
 class World(
-    entities: Set[Entity] = Set(),
-    events: WorldEvents = new WorldEvents()
+    val entities: Set[Entity] = Set(),
+    val events: WorldEvents = new WorldEvents()
 ) {
 
-  def render(): Unit =
+  def render(event: RenderEvent): Unit =
     World.renderer.render(events.render.trigger(
-      new Frame(), new RenderEvent()))
+      new Frame(), event))
 
-  def update(dt: Long): World =
-    events.update.trigger(this, new UpdateEvent(dt))
+  def update(event: UpdateEvent): World =
+    events.update.trigger(this, event)
 
-  def fixedUpdate(dt: Long): World =
-    events.fixedUpdate.trigger(this, new FixedUpdateEvent(dt))
+  def fixedUpdate(event: FixedUpdateEvent): World =
+    events.fixedUpdate.trigger(this, event)
 
-  def addEntity(entity: Entity): World =
-    entity.init(copy(entities = entities + entity))
+  def addEntity(entity: Entity): World = {
+    val world = entity.init(copy(entities = entities + entity))
+    world.events.create.trigger(world, new CreateEvent(entity))
+  }
 
   def removeEntity(entity: Entity): World =
     events.destroy.trigger(this, new DestroyEvent(entity))
-      .copy(entities = entities.filterNot(_ == entity))
+      .copy(entities = entities.filter(_ != entity))
       .event(_.removeHandlers(entity))
 
   def updateEntity(oldEntity: Entity, newEntity: Entity): World =

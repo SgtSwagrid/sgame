@@ -4,36 +4,37 @@ import org.lwjgl.opengl.GL11._
 import org.lwjgl.opengl.GL13._
 import org.lwjgl.opengl.GL20._
 import org.lwjgl.opengl.GL30._
-import swagrid.entity.Entity
 import swagrid.math.vector.{Mat, Transf3}
 
-class ModelShader extends Shader("vertex.glsl", "fragment.glsl") {
+class ModelShader extends Shader(
+  "src/swagrid/graphics/vertex.glsl",
+  "src/swagrid/graphics/fragment.glsl") {
 
-  private val FOV = 90.0F
-  private val ASPECT_RATIO = 1.5F
-  private val NEAR_CLIP = 0.3F
-  private val FAR_CLIP = 1000.0F
+  private val Fov = 90.0F
+  private val AspectRatio = 1.5F
+  private val NearClip = 0.3F
+  private val FarClip = 1000.0F
 
-  private val transform = glGetUniformLocation(shaderId, "transform")
-  private val view = glGetUniformLocation(shaderId, "view")
-  private val projection = glGetUniformLocation(shaderId, "projection")
-  private val viewport = glGetUniformLocation(shaderId, "viewport")
+  private val Transform = glGetUniformLocation(ShaderId, "transform")
+  private val View = glGetUniformLocation(ShaderId, "view")
+  private val Projection = glGetUniformLocation(ShaderId, "projection")
+  private val Viewport = glGetUniformLocation(ShaderId, "viewport")
 
   private var mesh: Mesh = null
 
   override protected def onBind(): Unit = {
-    glBindAttribLocation(shaderId, 0, "vertex")
-    glBindAttribLocation(shaderId, 1, "texmap")
-    glBindAttribLocation(shaderId, 2, "normal")
+    glBindAttribLocation(ShaderId, 0, "vertex")
+    glBindAttribLocation(ShaderId, 1, "texmap")
+    glBindAttribLocation(ShaderId, 2, "normal")
   }
 
   override protected def onInit(): Unit = {
-    glUniformMatrix4fv(projection, true, Mat.projection(
-        FOV, ASPECT_RATIO, NEAR_CLIP, FAR_CLIP).toFloatBuffer)
+    glUniformMatrix4fv(Projection, true, Mat.projection(
+        Fov, AspectRatio, NearClip, FarClip).toFloatBuffer)
   }
 
   def loadMesh(mesh: Mesh): Unit = {
-    glBindVertexArray(0 /*mesh vaoId*/)
+    glBindVertexArray(mesh.vaoId)
     for (i <- 0 to 2) glEnableVertexAttribArray(i)
     this.mesh = mesh
   }
@@ -56,16 +57,15 @@ class ModelShader extends Shader("vertex.glsl", "fragment.glsl") {
   }
 
   def loadCamera(camera: Camera): Unit = {
-    glUniformMatrix4fv(view, true, camera.view.toFloatBuffer)
-    glUniformMatrix4fv(projection, true, camera.projection.toFloatBuffer)
+    glUniformMatrix4fv(View, true, camera.view.toFloatBuffer)
+    glUniformMatrix4fv(Projection, true, camera.projection.toFloatBuffer)
+    //glUniformMatrix4fv(Viewport, true, camera.viewport.matrix.toFloatBuffer)
+    glUniformMatrix4fv(Viewport, true, Mat.identity(4).toFloatBuffer)
   }
 
-  def loadViewport(viewport: Viewport): Unit = {
-
-  }
-
-  def render(transf: Transf3): Unit = {
-    glUniformMatrix4fv(transform, true, transf.matrix.toFloatBuffer)
-    glDrawArrays(GL_TRIANGLES, 0, mesh.numVertices)
+  def render(transform: Transf3): Unit = {
+    glUniformMatrix4fv(Transform, true, transform.matrix.toFloatBuffer)
+    glDrawElements(GL_TRIANGLES, mesh.numVertices, GL_UNSIGNED_INT, 0)
+    println(transform)
   }
 }

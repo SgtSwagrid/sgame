@@ -5,7 +5,7 @@ import swagrid.math.vector.Transf3
 import swagrid.world.World
 
 class EntityCamera(
-    camera: Camera = Camera(),
+    camera: Camera,
     transform: Transf3 = Transf3()
 ) extends Component {
 

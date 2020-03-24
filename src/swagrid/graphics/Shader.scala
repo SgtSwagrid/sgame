@@ -4,49 +4,40 @@ import scala.io.Source
 import org.lwjgl.opengl.GL11._
 import org.lwjgl.opengl.GL20._
 
-abstract class Shader(vertexShaderFile: String, fragmentShaderFile: String) {
+abstract class Shader(VertexFile: String, FragmentFile: String) {
 
-  private var shaderProgramId = 0
-  private var vertexShaderId = 0
-  private var fragmentShaderId = 0
+  private val VertexId = compile(VertexFile, GL_VERTEX_SHADER)
+  private val FragmentId = compile(FragmentFile, GL_FRAGMENT_SHADER)
+  protected val ShaderId = glCreateProgram()
 
-  def init(): Unit = {
+  glAttachShader(ShaderId, VertexId)
+  glAttachShader(ShaderId, FragmentId)
 
-    vertexShaderId = compile(vertexShaderFile, GL_VERTEX_SHADER)
-    fragmentShaderId = compile(fragmentShaderFile, GL_FRAGMENT_SHADER)
+  onBind()
+  glLinkProgram(ShaderId)
+  glValidateProgram(ShaderId)
 
-    shaderProgramId = glCreateProgram()
-    glAttachShader(shaderProgramId, vertexShaderId)
-    glAttachShader(shaderProgramId, fragmentShaderId)
-
-    onBind()
-    glLinkProgram(shaderProgramId)
-    glValidateProgram(shaderProgramId)
-
-    glUseProgram(shaderProgramId)
-    onInit()
-    glUseProgram(0)
-  }
+  glUseProgram(ShaderId)
+  onInit()
+  glUseProgram(0)
 
   private def compile(shaderFile: String, shaderType: Int): Int = {
 
-    val shaderSrc = Source.fromResource(shaderFile,
-        getClass().getClassLoader()).mkString("\n")
+    val shaderSrc = Source.fromFile(shaderFile).getLines().mkString("\n")
 
     val shaderId = glCreateShader(shaderType)
     glShaderSource(shaderId, shaderSrc)
     glCompileShader(shaderId)
 
     if (glGetShaderi(shaderId, GL_COMPILE_STATUS) == GL_FALSE) {
+      System.err.println(s"Error in $shaderFile:\n")
       System.err.println(glGetShaderInfoLog(shaderId, 500))
       System.exit(0)
     }
     shaderId
   }
 
-  protected def shaderId: Int = shaderProgramId
-
-  def enable(): Unit = glUseProgram(shaderProgramId)
+  def enable(): Unit = glUseProgram(ShaderId)
   def disable(): Unit = glUseProgram(0)
 
   protected def onBind(): Unit

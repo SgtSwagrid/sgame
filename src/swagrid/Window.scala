@@ -4,13 +4,14 @@ import org.lwjgl.glfw.GLFW._
 import org.lwjgl.glfw.GLFWErrorCallback._
 import org.lwjgl.opengl.GL._
 import org.lwjgl.opengl.GL11._
-
-import scala.collection.mutable
+import swagrid.event._
 
 class Window(
     private var _width: Int,
     private var _height: Int,
     var title: String) {
+
+  private var events = new WindowEvents()
 
   private var _cursorX = 0; var _cursorY = 0
   private var lastUpdate = 0L; var lastFixedUpdate = 0L
@@ -44,17 +45,45 @@ class Window(
     windowId
   }
 
+  def initCallbacks(): Unit = {
+
+    glfwSetMouseButtonCallback(windowId, (_, button, action, _) =>
+      events.click.trigger(new ClickEvent(
+        this, button, action, cursorX, cursorY)))
+
+    glfwSetKeyCallback(windowId, (_, key, _, action, _) =>
+      events.key.trigger(new KeyEvent(
+        this, key, action)))
+
+    glfwSetCursorPosCallback(windowId, (_, cursorX, cursorY) => {
+
+      val cx = cursorX.toInt - width / 2
+      val cy = height / 2 - cursorY.toInt
+
+      events.cursorMove.trigger(new CursorMoveEvent(
+        this, cx, cy, cx - this.cursorX, cy - this.cursorY))
+
+      this._cursorX = cx
+      this._cursorY = cy
+    })
+  }
+
   def show(): Unit = {
 
+    initCallbacks()
+
     glfwSetFramebufferSizeCallback(windowId, (_, width, height) => {
+
       _width = width; _height = height
       glViewport(0, 0, width, height)
+      events.resize.trigger(new ResizeEvent(this, width, height))
       update()
     })
 
     while (!glfwWindowShouldClose(windowId)) {
       update()
     }
+    events.close.trigger(new CloseEvent(this))
   }
 
   def update(): Unit = {
@@ -71,115 +100,19 @@ class Window(
 
     if (fixedDt > targetDt - dt/2) {
       lastFixedUpdate = now
-      val fixedUpdateEvent = new FixedUpdateEvent(this, fixedDt)
-      fixedUpdateListeners.foreach(_(fixedUpdateEvent))
+      events.fixedUpdate.trigger(new FixedUpdateEvent(this, fixedDt))
     }
 
-    val updateEvent = new UpdateEvent(this, dt)
-    updateListeners.foreach(_(updateEvent))
-
-    val renderEvent = new RenderEvent(this)
-    renderListeners.foreach(_(renderEvent))
+    events.update.trigger(new UpdateEvent(this, dt))
+    events.render.trigger(new RenderEvent(this))
 
     glfwSwapBuffers(windowId)
     glfwPollEvents()
     glfwSetWindowTitle(windowId, title)
   }
 
-  private val renderListeners = mutable.Set[RenderEvent => Unit]()
-
-  def onRender(action: RenderEvent => Unit): Window = {
-    renderListeners += action
+  def event(e: WindowEvents => WindowEvents): Window = {
+    events = e(events)
     this
   }
-
-  class RenderEvent(val window: Window)
-
-  private val updateListeners = mutable.Set[UpdateEvent => Unit]()
-
-  def onUpdate(action: UpdateEvent => Unit): Window = {
-    updateListeners += action
-    this
-  }
-
-  class UpdateEvent(val window: Window, val dt: Long)
-
-  private val fixedUpdateListeners = mutable.Set[FixedUpdateEvent => Unit]()
-
-  def onFixedUpdate(action: FixedUpdateEvent => Unit): Window = {
-    fixedUpdateListeners += action
-    this
-  }
-
-  class FixedUpdateEvent(val window: Window, val dt: Long)
-
-  private val clickListeners = mutable.Set[ClickEvent => Unit]()
-
-  def onClick(action: ClickEvent => Unit): Window = {
-    clickListeners += action
-    this
-  }
-
-  glfwSetMouseButtonCallback(windowId, (_, button, action, _) => {
-
-    val event = new ClickEvent(this, button, action, cursorX, cursorY)
-    clickListeners.foreach(_(event))
-  })
-
-  class ClickEvent(val window: Window, val button: Int,
-      val action: Int, val cursorX: Int, val cursorY: Int)
-
-  private val moveListeners = mutable.Set[MoveEvent => Unit]()
-
-  def onMouseMove(action: MoveEvent => Unit): Window = {
-    moveListeners += action
-    this
-  }
-
-  glfwSetCursorPosCallback(windowId, (_, cx, cy) => {
-
-    val cursorX = cx.toInt - width/2
-    val cursorY = height/2 - cy.toInt
-
-    val cursorDX = cursorX - this.cursorX
-    val cursorDY = cursorY - this.cursorY
-
-    _cursorX = cursorX; _cursorY = cursorY
-
-    val event = new MoveEvent(this, cursorX, cursorY, cursorDX, cursorDY)
-    moveListeners.foreach(_(event))
-  })
-
-  class MoveEvent(val window: Window, val cursorX: Int,
-      val cursorY: Int, val cursorDX: Int, val cursorDY: Int)
-
-  private val keyListeners = mutable.Set[KeyEvent => Unit]()
-
-  def onKey(action: KeyEvent => Unit): Window = {
-    keyListeners += action
-    this
-  }
-
-  glfwSetKeyCallback(windowId, (_, key, _, action, _) => {
-
-    val event = new KeyEvent(this, key, action)
-    keyListeners.foreach(_(event))
-  })
-
-  class KeyEvent(val window: Window, val key: Int, val action: Int)
-
-  private val resizeListeners = mutable.Set[ResizeEvent => Unit]()
-
-  def onResize(action: ResizeEvent => Unit): Window = {
-    resizeListeners += action
-    this
-  }
-
-  glfwSetWindowSizeCallback(windowId, (_, width, height) => {
-
-    val event = new ResizeEvent(this, width, height)
-    resizeListeners.foreach(_(event))
-  })
-
-  class ResizeEvent(val window: Window, val width: Int, val height: Int)
 }

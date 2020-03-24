@@ -4,37 +4,42 @@ import swagrid.entity.Entity
 import swagrid.graphics.Frame
 import swagrid.world.World
 
-class RenderEvent()
-class UpdateEvent(val dt: Long)
-class FixedUpdateEvent(val dt: Long)
+class CreateEvent(val entity: Entity)
+
 class DestroyEvent(val entity: Entity)
 
 case class WorldEvents(
-    render: EventHandler[Frame, RenderEvent] = new EventHandler(),
-    update: EventHandler[World, UpdateEvent] = new EventHandler(),
-    fixedUpdate: EventHandler[World, FixedUpdateEvent] = new EventHandler(),
-    destroy: EventHandler[World, DestroyEvent] = new EventHandler()
+    render: IEventHandler[Frame, RenderEvent] = new IEventHandler(),
+    update: IEventHandler[World, UpdateEvent] = new IEventHandler(),
+    fixedUpdate: IEventHandler[World, FixedUpdateEvent] = new IEventHandler(),
+    create: IEventHandler[World, CreateEvent] = new IEventHandler(),
+    destroy: IEventHandler[World, DestroyEvent] = new IEventHandler()
 ) {
 
-  def onRender(f: EventHandler[Frame, RenderEvent] =>
-      EventHandler[Frame, RenderEvent]): WorldEvents =
+  def onRender(f: IEventHandler[Frame, RenderEvent] =>
+      IEventHandler[Frame, RenderEvent]): WorldEvents =
     copy(render = f(render))
 
-  def onUpdate(f: EventHandler[World, UpdateEvent] =>
-      EventHandler[World, UpdateEvent]): WorldEvents =
+  def onUpdate(f: IEventHandler[World, UpdateEvent] =>
+      IEventHandler[World, UpdateEvent]): WorldEvents =
     copy(update = f(update))
 
-  def onFixedUpdate(f: EventHandler[World, FixedUpdateEvent] =>
-      EventHandler[World, FixedUpdateEvent]): WorldEvents =
+  def onFixedUpdate(f: IEventHandler[World, FixedUpdateEvent] =>
+      IEventHandler[World, FixedUpdateEvent]): WorldEvents =
     copy(fixedUpdate = f(fixedUpdate))
 
-  def onDestroy(f: EventHandler[World, DestroyEvent] =>
-      EventHandler[World, DestroyEvent]): WorldEvents =
+  def onCreate(f: IEventHandler[World, CreateEvent] =>
+      IEventHandler[World, CreateEvent]): WorldEvents =
+    copy(create = f(create))
+
+  def onDestroy(f: IEventHandler[World, DestroyEvent] =>
+      IEventHandler[World, DestroyEvent]): WorldEvents =
     copy(destroy = f(destroy))
 
   def removeHandlers(key: Any): WorldEvents =
     onRender(_.remove(key))
       .onUpdate(_.remove(key))
       .onFixedUpdate(_.remove(key))
+      .onCreate(_.remove(key))
       .onDestroy(_.remove(key))
 }

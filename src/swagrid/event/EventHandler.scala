@@ -1,7 +1,7 @@
 package swagrid.event
 
-class EventHandler[S, E](
-    handlers: Map[Any, Set[(E => Boolean, (S, E) => S)]] =
+class IEventHandler[S, E](
+    val handlers: Map[Any, Set[(E => Boolean, (S, E) => S)]] =
       Map[Any, Set[(E => Boolean, (S, E) => S)]]()
 ) {
 
@@ -12,10 +12,36 @@ class EventHandler[S, E](
 
   def add(key: Any = None,
       condition: E => Boolean = _ => true)
-      (handler: (S, E) => S): EventHandler[S, E] =
-    new EventHandler(handlers = handlers + (key -> (
+      (handler: (S, E) => S): IEventHandler[S, E] =
+    new IEventHandler(handlers = handlers + (key -> (
       handlers.getOrElse(key, Set()) + ((condition, handler)))))
 
-  def remove(key: Any): EventHandler[S, E] =
-    new EventHandler(handlers = handlers - key)
+  def add(handler: (S, E) => S): IEventHandler[S, E] =
+    add()(handler)
+
+  def remove(key: Any): IEventHandler[S, E] =
+    new IEventHandler(handlers = handlers - key)
+}
+
+class MEventHandler[E](
+    handlers: Map[Any, Set[(E => Boolean, E => Unit)]] =
+      Map[Any, Set[(E => Boolean, E => Unit)]]()
+ ) {
+
+  def trigger(event: E): Unit =
+    handlers.flatMap{_._2}
+      .filter{_._1(event)}
+      .foreach{h => h._2(event)}
+
+  def add(key: Any = None,
+          condition: E => Boolean = _ => true)
+         (handler: E => Unit): MEventHandler[E] =
+    new MEventHandler(handlers = handlers + (key -> (
+      handlers.getOrElse(key, Set()) + ((condition, handler)))))
+
+  def add(handler: E => Unit): MEventHandler[E] =
+    add()(handler)
+
+  def remove(key: Any): MEventHandler[E] =
+    new MEventHandler(handlers = handlers - key)
 }
